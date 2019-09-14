@@ -21,7 +21,7 @@
         "heroku-prebuild": "echo Prebuild started...",
         "heroku-postbuild": "echo Postbuild started...",
         "preinstall": "cd client && npm install",
-        "postinstall": "cd client && ng build --prod --aot"
+        "postinstall": "cd client && npm run build"
     },
     "engines": {
         "node": "8.12.0",
