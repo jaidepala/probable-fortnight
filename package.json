@@ -7,7 +7,8 @@
         "@angular-devkit/build-angular": "~0.803.4",
         "@angular/cli": "~8.3.4",
         "@angular/compiler": "~8.2.5",
-        "@angular/compiler-cli": "~8.2.5",
+        "@angular/compiler-cli": "~8.2.5",,
+        "typescript": "~3.5.3",
         "body-parser": "^1.18.3",
         "concurrently": "^4.1.0",
         "cors": "^2.8.5",
@@ -23,7 +24,7 @@
         "deploy": "git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "postinstall": "cd client && npm install && ng build"
+        "heroku-postbuild": "cd client && npm install && ng build"
     },
     "engines": {
         "node": "10.16.3",
