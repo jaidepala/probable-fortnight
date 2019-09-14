@@ -18,10 +18,8 @@
         "deploy": "git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "heroku-preinstall": "cd client && npm install",
-        "heroku-postinstall": "cd client && npm run build",
-        "heroku-prebuild": "echo Prebuild started...",
-        "heroku-postbuild": "echo Postbuild started...",
+        "heroku-prebuild": "cd client && npm install",
+        "heroku-postbuild": "cd client && npm run build",
         "preinstall": "echo \"preinstall starts\" && ls",
         "postinstall": "echo \"postinstall starts\" && ls"
     },
