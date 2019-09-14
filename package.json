@@ -19,7 +19,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
         "preinstall": "npm install -g angular-cli",
-        "postinstall": "cd client && npm run build"
+        "postinstall": "cd client && npm run build-prod"
     },
     "engines": {
         "node": "10.16.3",
