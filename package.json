@@ -25,8 +25,8 @@
         "heroku-postbuild": "ng build --prod"
     },
     "engines": {
-        "node": "10.16.3",
-        "npm": "6.9.0"
+        "node": "8.11.3",
+        "npm": "5.6.0"
     },
     "author": "",
     "license": "ISC"
