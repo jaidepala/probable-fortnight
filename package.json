@@ -10,7 +10,11 @@
   "scripts": {
     "deploy": "git push origin master && git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-prebuild": "echo Prebuild started...",
+    "heroku-postbuild": "echo Postbuild started...",
+    "preinstall": "echo Preinstall started...",
+    "postinstall": "echo Postinstall started..."
   },
   "author": "",
   "license": "ISC"
