@@ -19,7 +19,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
         "heroku-postbuild": "cd client && npm run build",
-        "postinstall": "cd client && npm install"
+        "preinstall": "npm install -g angular-cli",
+        "postinstall": "cd client && npm run build"
     },
     "engines": {
         "node": "10.16.3",
