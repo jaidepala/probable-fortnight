@@ -15,17 +15,19 @@
     },
     "devDependencies": {},
     "scripts": {
-        "deploy": "git push origin master && git push heroku master",
+        "deploy": "git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
+        "heroku-preinstall": "cd client && npm install",
+        "heroku-postinstall": "cd client && npm run build",
         "heroku-prebuild": "echo Prebuild started...",
         "heroku-postbuild": "echo Postbuild started...",
-        "preinstall": "cd client && npm install",
-        "postinstall": "cd client && npm run build"
+        "preinstall": "echo \"preinstall starts\" && ls",
+        "postinstall": "echo \"postinstall starts\" && ls"
     },
     "engines": {
-        "node": "8.12.0",
-        "npm": "6.4.1"
+        "node": "10.16.3",
+        "npm": "6.9.0"
     },
     "author": "",
     "license": "ISC"
