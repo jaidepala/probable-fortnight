@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const bodyParser = require("body-parser");
+const path = require("path");
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -26,6 +28,11 @@ app.use(forceSSL());
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/client/dist/index.html'));
 });
+
+// (optional) only made for logging and
+// bodyParser, parses the request body to be a readable json format
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Run the app by serving the static files
 // in the dist directory
