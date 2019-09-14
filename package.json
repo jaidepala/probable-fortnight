@@ -21,7 +21,7 @@
         "deploy": "git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "postinstall": "cd client && ng build --aot --prod"
+        "postinstall": "cd client && npm install && ng build --aot --prod"
     },
     "engines": {
         "node": "10.16.3",
