@@ -13,8 +13,8 @@
     "start": "node server.js",
     "heroku-prebuild": "echo Prebuild started...",
     "heroku-postbuild": "echo Postbuild started...",
-    "preinstall": "echo Preinstall started...",
-    "postinstall": "echo Postinstall started..."
+    "preinstall": "cd client && npm install",
+    "postinstall": "cd client && ng build --prod ---aot"
   },
   "author": "",
   "license": "ISC"
