@@ -1,42 +1,22 @@
 const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+
 const app = express();
-const bodyParser = require("body-parser");
-const path = require("path");
-
-// If an incoming request uses
-// a protocol other than HTTPS,
-// redirect that request to the
-// same url but with HTTPS
-const forceSSL = function () {
-    return function (req, res, next) {
-        if (req.headers['x-forwarded-proto'] !== 'https') {
-            return res.redirect(
-                ['https://', req.get('Host'), req.url].join('')
-            );
-        }
-        next();
-    }
-};
-
-// Instruct the app
-// to use the forceSSL
-// middleware
-app.use(forceSSL());
-
-// For all GET requests, send back index.html
-// so that PathLocationStrategy can be used
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/client/dist/index.html'));
-});
+const port = process.env.port || 8080;
 
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// app.use(logger("dev"));
 
-// Run the app by serving the static files
-// in the dist directory
-app.use(express.static(__dirname + '/client/dist'));
-// Start the app by listening on the default
-// Heroku port
-app.listen(process.env.PORT || 8080);
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/dist/index.html'));
+});
+
+app.listen(port);
+
+console.log(`Password generator listening on ${port}`);
