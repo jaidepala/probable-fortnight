@@ -1,1 +1,91 @@
-<p>task2 works!</p>
+<mat-card>
+    <mat-card-header>
+        Task 2
+        
+        <mat-list class="search-params-container">
+            <mat-list-item>
+                <mat-form-field class="example-full-width">
+                    <input 
+                        #searchCharacter 
+                        class="form-control" 
+                        matInput 
+                        placeholder="Search for a character..."
+                    />
+                </mat-form-field>
+                
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-card-header>
+    <mat-card-content>
+
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-list>
+                    <mat-list-item>
+                        1. Displays a list of all the Star Wars characters
+                    </mat-list-item>
+                    <mat-list-item>
+                        2. Allows you to filter or search that list
+                    </mat-list-item>
+                    <mat-list-item>
+                        3. Displays the difference between the youngest and oldest characters in Star Wars
+                    </mat-list-item>
+                    <mat-list-item>
+                        4. Displays the average height of Star Wars characters
+                    </mat-list-item>
+                    <mat-list-item>
+                        5. Displays the distribution of eye colours of Star Wars characters
+                    </mat-list-item>
+                    <mat-list-item>
+                        <button style="right: 0px; position: absolute; text-align: right;" [disabled]="isButtonDisabled" (click)="getData()" mat-raised-button color="primary">Next</button>
+                    </mat-list-item>
+                </mat-list>
+            </mat-grid-tile>
+
+            <mat-grid-tile style="overflow: auto;" *ngIf="filteredData && filteredData.length > 0">
+                <div class="internalMatGrid">
+                        
+                    <mat-grid-list cols="3" rowHeight="3:1">
+                        <mat-grid-tile *ngFor="let thisCharacter of filteredData">
+                    
+                            {{ thisCharacter.name }}
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </div>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+        <mat-grid-list cols="3" rowHeight="3:1">
+            
+            <mat-grid-tile>
+
+                Youngest Character:
+
+                {{ sortedCharacters && sortedCharacters[0] && sortedCharacters[0].name }}<br />
+                
+                Birth Year:
+                {{ sortedCharacters && sortedCharacters[0] && sortedCharacters[0].birth_year }}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Oldest Character:
+
+                {{ sortedCharacters && sortedCharacters[sortedCharacters.length - 1] && sortedCharacters[sortedCharacters.length - 1].name }}  <br />
+
+                Birth Year: 
+                {{ sortedCharacters && sortedCharacters[sortedCharacters.length - 1] && sortedCharacters[sortedCharacters.length - 1].birth_year }}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                Difference:
+
+                {{ sortedCharacters && sortedCharacters[0] && sortedCharacters[sortedCharacters.length - 1] && (sortedCharacters[sortedCharacters.length - 1].birthYear - sortedCharacters[0].birthYear) }}
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">
+                Average Height:
+
+                {{ getAverageOf('height') }}
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </mat-card-content>
+</mat-card>

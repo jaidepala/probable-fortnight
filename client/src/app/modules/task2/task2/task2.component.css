@@ -1,0 +1,5 @@
+/* 
+    Ref: https://stackoverflow.com/a/56804799
+*/
+.internalMatGrid{ min-width: 100%; height: -webkit-fill-available; }
+.search-params-container { margin: 5px auto; }
