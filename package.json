@@ -1,6 +1,6 @@
 {
     "name": "packt-questions",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "",
     "main": "server.js",
     "dependencies": {
@@ -37,7 +37,7 @@
         "deploy": "git push -u heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "postinstall": "cd client && ng build --aot --prod"
+        "postinstall": "cd client && ng build --aot --prod --bh=\"./\""
     },
     "engines": {
         "node": "10.16.3",
