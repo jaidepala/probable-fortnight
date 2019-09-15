@@ -147,7 +147,7 @@ export class Task2Component implements OnInit {
 
         let average = 0;
 
-        this.allCharacters.map(( thisCharacter ) => {
+        this.filteredData.map(( thisCharacter ) => {
 
             let thisKeyValue = thisCharacter[theKey];
 
